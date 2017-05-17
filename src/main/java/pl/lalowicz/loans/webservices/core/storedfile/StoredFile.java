@@ -27,9 +27,7 @@ public class StoredFile implements Serializable {
     @Column(name = "path", nullable = false)
     private String path;
 
-    //        @ManyToOne(fetch = FetchType.EAGER)
     @ManyToOne(optional = false)
-//    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id", foreignKey = @ForeignKey(name = "file_customer_id_fk"))
     private Customer customer;
 

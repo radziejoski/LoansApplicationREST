@@ -61,10 +61,6 @@ public class LoansWebServiceController {
 
     @RequestMapping(value = "/customer", method = RequestMethod.POST)
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer, UriComponentsBuilder ucBuilder) {
-        //TODO exists dorobic
-        if (false) {
-
-        }
         Customer created = customerService.create(customer);
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(customer.getId()).toUri());
@@ -77,7 +73,6 @@ public class LoansWebServiceController {
         if (!current.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        //TODO sprawdzic nulle ?
         Customer forUpdate = current.get();
         forUpdate.setRates(customer.getRates());
         forUpdate.setTotalAmount(customer.getTotalAmount());
@@ -144,7 +139,6 @@ public class LoansWebServiceController {
     public ResponseEntity<List<StoredFile>> getFiles(@PathVariable("id") Long id) {
         StoredFileQuery query = StoredFileQuery.builder(id).build();
         List<StoredFile> result = storedFileService.search(query);
-        //co jak pusta lista
         ResponseEntity<List<StoredFile>> customerResponseEntity = new ResponseEntity<>(result, HttpStatus.OK);
         return customerResponseEntity;
     }

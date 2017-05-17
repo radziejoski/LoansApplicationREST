@@ -56,7 +56,7 @@ public class Customer implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<StoredFile> filesList;// = new ArrayList<>();
+    private List<StoredFile> filesList;
 
     public Long getId() {
         return id;

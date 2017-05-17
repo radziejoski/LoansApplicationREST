@@ -43,7 +43,7 @@ public class LoansWebServicesAppInitializer extends AbstractAnnotationConfigDisp
         return multipartConfigElement;
     }
 
-    private static final String LOCATION = "E:/"; //zmienic na jakis user folder
+    private static final String LOCATION = System.getProperty("user.home");
 
     private static final long MAX_FILE_SIZE = 5242880;
 
